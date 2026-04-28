@@ -1,115 +1,114 @@
 import streamlit as st
 from datetime import datetime
 
-# 1. CẤU HÌNH GIAO DIỆN PHONG CÁCH THƯ VIỆN
-st.set_page_config(page_title="Thư Viện Số Thầy Hậu", page_icon="📚", layout="centered")
+# 1. CẤU HÌNH HỆ THỐNG - KHÓA CHẾ ĐỘ SÁNG (LIGHT MODE)
+st.set_page_config(page_title="Thư Viện Số Thầy Hậu", page_icon="📚", layout="wide")
 
 st.markdown("""
     <style>
+    /* 1. ÉP NỀN TRẮNG TOÀN DIỆN */
     .stApp {
-        background-color: #FDF6E3; /* Màu giấy cũ */
+        background-color: #FFFFFF !important;
     }
-    .book-title {
-        color: #5D4037;
-        text-align: center;
-        font-family: 'Times New Roman', serif;
-        font-weight: bold;
-        font-size: 40px;
-        margin-bottom: 0px;
+    
+    /* 2. ÉP TẤT CẢ CHỮ TRONG HỆ THỐNG THÀNH MÀU ĐEN ĐẬM */
+    /* Bao gồm tiêu đề, đoạn văn, nhãn, các thành phần của Streamlit */
+    h1, h2, h3, h4, p, span, label, div, .stMarkdown {
+        color: #1A1A1A !important;
+        font-family: 'Segoe UI', Arial, sans-serif !important;
     }
-    .chapter-box {
-        background-color: #FFFFFF;
-        padding: 30px;
-        border-radius: 5px;
-        border: 1px solid #D7CCC8;
-        box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
-        line-height: 1.8;
-        font-size: 18px;
-        color: #3E2723;
+
+    /* 3. TẠO KHUNG ĐỌC SÁCH RÕ NÉT */
+    .book-container {
+        background-color: #F8F9FA !important; /* Nền xám cực nhẹ để nổi bật vùng đọc */
+        padding: 30px !important;
+        border-radius: 15px !important;
+        border: 2px solid #EEEEEE !important;
+        margin: 20px 0px !important;
     }
-    .comment-box {
-        background-color: #EFEBE9;
-        padding: 15px;
-        border-radius: 10px;
-        margin-bottom: 10px;
-        border-left: 5px solid #8D6E63;
+
+    /* 4. FIX MÀU CHO SIDEBAR (CỘT TRÁI) */
+    section[data-testid="stSidebar"] {
+        background-color: #F1F5F9 !important;
     }
+    section[data-testid="stSidebar"] * {
+        color: #1A1A1A !important;
+    }
+
+    /* 5. NÚT BẤM (Màu xanh đậm, chữ trắng để tương phản) */
     .stButton>button {
-        background-color: #8D6E63 !important;
-        color: white !important;
-        width: 100%;
+        background-color: #1E40AF !important;
+        color: #FFFFFF !important;
+        border: none !important;
+        padding: 10px 20px !important;
+        font-weight: bold !important;
+    }
+    
+    /* Đảm bảo chữ trong nút luôn trắng */
+    .stButton>button p {
+        color: #FFFFFF !important;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# 2. DỮ LIỆU SÁCH (Em đưa nội dung anh viết vào đây)
+# 2. DỮ LIỆU NỘI DUNG (Anh dán nội dung của anh vào đây)
 sach_du_lieu = {
     "Người Thầy Giữa Đời Thường": {
-        "Lời nói đầu": """Có những con người không cần bước lên sân khấu lớn vẫn khiến người khác kính trọng... (Nội dung lời nói đầu của anh)""",
-        "Chương 1: Tuổi thơ và ước mơ": """Ngày 7 tháng 9 năm 1978, tại phường Tân Lộc... (Nội dung chương 1)""",
-        "Chương 2: Bước chân vào nghề": """Năm 2000, thầy Trần Trung Hậu chính thức bước vào nghề giáo...""",
-        "Chương 5: Câu chuyện không thể quên": """Trong hành trình dạy học, có những niềm vui lớn, nhưng cũng có những nỗi buồn...""",
-        # Anh có thể dán tiếp các chương khác vào đây
-    },
-    "Ký ức vùng đất Tân Lộc": {
-        "Chương 1": "Nội dung quyển sách thứ 2 của anh sẽ nằm ở đây..."
+        "Lời nói đầu": """Có những con người không cần bước lên sân khấu lớn vẫn khiến người khác kính trọng. Có những cuộc đời không ồn ào nhưng để lại dấu ấn sâu sắc trong lòng bao thế hệ...""",
+        "Chương 1: Tuổi thơ": """Ngày 7 tháng 9 năm 1978, tại phường Tân Lộc – vùng đất hiền hòa của Thành phố Cần Thơ – cậu bé Trần Trung Hậu chào đời...""",
+        "Kết luận": """Giữa đời thường, có những con người sống lặng lẽ mà lớn lao."""
     }
 }
 
-# 3. QUẢN LÝ BÌNH LUẬN (Mạng xã hội nhỏ)
 if 'comments' not in st.session_state:
-    st.session_state.comments = [
-        {"name": "Học trò cũ", "content": "Em đọc mà xúc động quá thầy ơi, cảm ơn thầy vì những năm tháng dạy dỗ!", "time": "20/05/2024"},
-        {"name": "Đồng nghiệp", "content": "Một tấm gương sáng cho thế hệ giáo viên trẻ noi theo.", "time": "21/05/2024"}
-    ]
+    st.session_state.comments = []
 
-# 4. GIAO DIỆN CHÍNH
-st.markdown("<h1 class='book-title'>📚 THƯ VIỆN SỐ THẦY HẬU</h1>", unsafe_allow_html=True)
-st.write("<p style='text-align: center; color: #8D6E63;'>Nơi lưu giữ những ký ức và tri thức</p>", unsafe_allow_html=True)
+# 3. HIỂN THỊ (DÙNG THẺ HTML TRỰC TIẾP ĐỂ ÉP MÀU ĐEN)
 
-# Chọn sách
-chon_sach = st.sidebar.selectbox("📖 Chọn tác phẩm:", list(sach_du_lieu.keys()))
+# Tiêu đề chính - Cột phải
+st.markdown("<h1 style='text-align: center; color: #1E40AF !important;'>📚 THƯ VIỆN SỐ THẦY HẬU</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #4B5563 !important; font-style: italic;'>Nơi lưu giữ những ký ức và tri thức</p>", unsafe_allow_html=True)
 
-# Chọn chương
-danh_sach_chuong = list(sach_du_lieu[chon_sach].keys())
-chon_chuong = st.sidebar.radio("Chương sách:", danh_sach_chuong)
+# Mục lục - Cột trái
+st.sidebar.markdown("<h2 style='color: #1E40AF !important;'>📖 CHỌN CHƯƠNG</h2>", unsafe_allow_html=True)
+chon_chuong = st.sidebar.radio("", list(sach_du_lieu["Người Thầy Giữa Đời Thường"].keys()))
 
-# Hiển thị nội dung
-st.markdown(f"## {chon_chuong}")
-st.markdown(f"<div class='chapter-box'>{sach_du_lieu[chon_sach][chon_chuong]}</div>", unsafe_allow_html=True)
+# Nội dung chính
+st.markdown(f"<h2 style='color: #1A1A1A !important;'>📖 {chon_chuong}</h2>", unsafe_allow_html=True)
 
-st.markdown("---")
+noidung = sach_du_lieu["Người Thầy Giữa Đời Thường"][chon_chuong]
+st.markdown(f"""
+    <div class='book-container'>
+        <p style='color: #1A1A1A !important; font-size: 18px; line-height: 1.8;'>
+            {noidung}
+        </p>
+    </div>
+""", unsafe_allow_html=True)
 
-# 5. PHẦN BÌNH LUẬN (MẠNG XÃ HỘI)
-st.subheader("💬 Bạn đọc nhận xét")
+st.markdown("<hr style='border: 1px solid #E5E7EB;'>", unsafe_allow_html=True)
 
-# Form gửi bình luận
-with st.form("comment_form", clear_on_submit=True):
-    col1, col2 = st.columns([1, 3])
-    with col1:
-        ten = st.text_input("Tên của bạn:")
-    with col2:
-        noidung = st.text_area("Cảm nhận của bạn về tác phẩm:")
+# 4. PHẦN BÌNH LUẬN
+st.markdown("<h3 style='color: #1E40AF !important;'>💬 Bạn đọc nhận xét</h3>", unsafe_allow_html=True)
+
+with st.form("comment_box", clear_on_submit=True):
+    # Tạo nhãn bằng HTML đen để không bị lỗi
+    st.markdown("<p style='color: black !important; font-weight: bold;'>Tên của anh/chị:</p>", unsafe_allow_html=True)
+    ten = st.text_input("", label_visibility="collapsed")
     
-    submit = st.form_submit_button("Gửi nhận xét")
-    if submit and ten and noidung:
-        new_comment = {
-            "name": ten,
-            "content": noidung,
-            "time": datetime.now().strftime("%d/%m/%Y %H:%M")
-        }
-        st.session_state.comments.insert(0, new_comment)
-        st.success("Cảm ơn bạn đã chia sẻ cảm xúc!")
+    st.markdown("<p style='color: black !important; font-weight: bold;'>Cảm nhận:</p>", unsafe_allow_html=True)
+    bl = st.text_area("", label_visibility="collapsed")
+    
+    submit = st.form_submit_button("GỬI BÌNH LUẬN")
+    
+    if submit and ten and bl:
+        st.session_state.comments.insert(0, {"name": ten, "text": bl, "time": datetime.now().strftime("%d/%m/%Y %H:%M")})
         st.rerun()
 
-# Hiển thị danh sách bình luận
+# Hiển thị bình luận
 for c in st.session_state.comments:
     st.markdown(f"""
-    <div class='comment-box'>
-        <strong>{c['name']}</strong> <small style='color: #8D6E63;'>({c['time']})</small><br>
-        {c['content']}
-    </div>
+        <div style='background-color: #F3F4F6; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 5px solid #1E40AF;'>
+            <strong style='color: #1E40AF !important;'>👤 {c['name']}</strong> <small style='color: #6B7280;'>({c['time']})</small><br>
+            <p style='color: #1A1A1A !important; margin-top: 5px;'>{c['text']}</p>
+        </div>
     """, unsafe_allow_html=True)
-
-st.sidebar.markdown("---")
-st.sidebar.info("Đây là không gian chia sẻ những tác phẩm của Nhà giáo Ưu tú Trần Trung Hậu.")
