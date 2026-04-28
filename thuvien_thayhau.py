@@ -34,7 +34,6 @@ st.markdown("""
 
 # 2. DỮ LIỆU SÁCH (ĐÃ THÊM ĐẦY ĐỦ CÁC CHƯƠNG)
 DATA_BOOK = {
-    # Tìm đoạn này trong code và dán nội dung của anh vào giữa cặp """ và """
     "Lời nói đầu": """
     Có những con người không cần bước lên sân khấu lớn vẫn khiến người khác kính trọng. Có những cuộc đời không ồn ào nhưng để lại dấu ấn sâu sắc trong lòng bao thế hệ. Và có những người thầy, mỗi ngày lặng lẽ đến trường, mang theo tri thức, tình thương và trách nhiệm để vun trồng tương lai cho đất nước.
 Cuốn sách này kể về thầy Trần Trung Hậu – một giáo viên môn Tin học tại Trường THCS Thuận Hưng, Thành phố Cần Thơ. Hơn hai mươi sáu năm đứng lớp là hơn hai mươi sáu năm bền bỉ với bảng đen, phấn trắng, với những bài giảng đổi mới từng ngày, với niềm vui khi học trò tiến bộ và những trăn trở khi còn em nhỏ nào chưa theo kịp.
@@ -133,7 +132,6 @@ Kiến thức có thể giúp một người kiếm sống. Nhân cách giúp h�
 Điều tâm đắc nhất của thầy về nghề giáo là cảm giác đã truyền thụ được kiến thức và bài học cuộc sống cho học sinh qua từng năm. Mỗi khóa học trò đi qua là một chuyến đò rời bến, mang theo hy vọng mới cho tương lai.
 3. Truyền cảm hứng cho thế hệ trẻ
 Thầy tin rằng một lời động viên đúng lúc có thể thay đổi cuộc đời một học sinh. Một tấm gương sống đẹp có thể tạo ra nhiều tấm gương khác. Và một người thầy tận tâm có thể âm thầm góp phần thay đổi xã hội.
-
 """,   
     "Kết luận": """
     Giữa đời thường, có những con người sống lặng lẽ mà lớn lao. Thầy Trần Trung Hậu là một người như thế.
@@ -141,7 +139,6 @@ Từ cậu bé sinh ra nơi Tân Lộc đến người thầy được xã hội
 Cuộc đời thầy nhắc chúng ta rằng: vĩ đại không nhất thiết phải là điều quá lớn lao. Đôi khi, vĩ đại là làm tốt công việc của mình suốt nhiều năm, sống tử tế với mọi người, không ngừng học hỏi và dành trái tim cho thế hệ mai sau.
 Người thầy rồi sẽ già đi theo năm tháng. Nhưng những hạt giống tri thức và cảm hứng mà thầy gieo xuống sẽ tiếp tục nảy mầm trong biết bao cuộc đời khác.
 Và đó mới là sự bất tử đẹp nhất của nghề giáo.
-
     """
 }
 
