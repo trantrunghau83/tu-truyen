@@ -35,7 +35,6 @@ st.markdown("""
 # 2. DỮ LIỆU SÁCH (ĐÃ THÊM ĐẦY ĐỦ CÁC CHƯƠNG)
 DATA_BOOK = {
     # Tìm đoạn này trong code và dán nội dung của anh vào giữa cặp """ và """
-DATA_BOOK = {
     "Lời nói đầu": """
     Có những con người không cần bước lên sân khấu lớn vẫn khiến người khác kính trọng. Có những cuộc đời không ồn ào nhưng để lại dấu ấn sâu sắc trong lòng bao thế hệ. Và có những người thầy, mỗi ngày lặng lẽ đến trường, mang theo tri thức, tình thương và trách nhiệm để vun trồng tương lai cho đất nước.
 Cuốn sách này kể về thầy Trần Trung Hậu – một giáo viên môn Tin học tại Trường THCS Thuận Hưng, Thành phố Cần Thơ. Hơn hai mươi sáu năm đứng lớp là hơn hai mươi sáu năm bền bỉ với bảng đen, phấn trắng, với những bài giảng đổi mới từng ngày, với niềm vui khi học trò tiến bộ và những trăn trở khi còn em nhỏ nào chưa theo kịp.
@@ -107,7 +106,17 @@ Sau đó, em tham gia kỳ thi Tin học trẻ. Và lần này, công sức đư
 Có những người thầy không chỉ dạy cách thành công, mà còn dạy cách đứng dậy sau thất bại.
 
     """,
-"Chương 7: NHỮNG DANH HIỆU VÀ GIÁ TRỊ THẬT": """
+    "Chương 6: CUỘC SỐNG ĐỜI THƯỜNG SAU BỤC GIẢNG": """
+1. Người chồng, người cha trong gia đình
+Sau giờ dạy, thầy trở về với mái ấm của mình – nơi có người vợ đồng hành và hai người con: một gái, một trai. Nếu ở trường thầy là người dẫn dắt học sinh, thì ở nhà thầy là chỗ dựa của gia đình.
+Một người thành công ngoài xã hội nhưng thiếu trách nhiệm với gia đình thì thành công ấy chưa trọn vẹn. Thầy hiểu điều đó và luôn cố gắng cân bằng giữa công việc và tổ ấm.
+2. Sự giản dị đáng quý
+Nhiều người có thành tích lớn thường dễ tạo khoảng cách. Nhưng ở thầy Trần Trung Hậu, càng thành công càng khiêm nhường. Cuộc sống của thầy vẫn giản dị, chân thành và gần gũi.
+Điều khiến người khác nể trọng không chỉ là danh hiệu, mà là cách sống sau danh hiệu.
+3. Niềm vui từ việc học mỗi ngày
+Có người thư giãn bằng nghỉ ngơi, có người bằng du lịch. Với thầy, niềm vui lớn là nghiên cứu và học cái mới. Tinh thần ấy giúp thầy luôn trẻ trong suy nghĩ, luôn tiến về phía trước và luôn có điều mới để chia sẻ với học trò.
+    """,
+    "Chương 7: NHỮNG DANH HIỆU VÀ GIÁ TRỊ THẬT": """
 1. Nhà giáo Ưu tú – năm 2017
 Danh hiệu Nhà giáo Ưu tú là sự ghi nhận cho cả một quá trình cống hiến. Nhưng để đi đến ngày được xướng tên là biết bao năm tận tâm, biết bao giờ lên lớp nghiêm túc và biết bao học sinh trưởng thành.
 2. Huân chương Lao động hạng Ba – năm 2025
@@ -134,7 +143,6 @@ Người thầy rồi sẽ già đi theo năm tháng. Nhưng những hạt giố
 Và đó mới là sự bất tử đẹp nhất của nghề giáo.
 
     """
-}
 }
 
 if 'comments' not in st.session_state:
