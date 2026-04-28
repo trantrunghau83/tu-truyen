@@ -11,6 +11,8 @@ st.markdown("""
         color: #000000 !important;
         -webkit-text-fill-color: #000000 !important;
     }
+    
+    /* CHỈNH SỬA TẠI ĐÂY: CĂN THẲNG 2 LỀ */
     .noidung-sach {
         background-color: #F8F9FA !important;
         padding: 30px !important;
@@ -19,7 +21,9 @@ st.markdown("""
         color: #000000 !important;
         font-size: 20px !important;
         line-height: 1.8 !important;
+        text-align: justify !important; /* Lệnh thần thánh để căn thẳng 2 lề */
     }
+
     section[data-testid="stSidebar"] { background-color: #F1F5F9 !important; }
     section[data-testid="stSidebar"] * { color: #000000 !important; }
     .stButton>button {
@@ -32,7 +36,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# 2. DỮ LIỆU SÁCH (ĐÃ THÊM ĐẦY ĐỦ CÁC CHƯƠNG)
+# 2. DỮ LIỆU SÁCH (Anh cứ tiếp tục dán nội dung vào đây nhé)
 DATA_BOOK = {
     "Lời nói đầu": """
     Có những con người không cần bước lên sân khấu lớn vẫn khiến người khác kính trọng. Có những cuộc đời không ồn ào nhưng để lại dấu ấn sâu sắc trong lòng bao thế hệ. Và có những người thầy, mỗi ngày lặng lẽ đến trường, mang theo tri thức, tình thương và trách nhiệm để vun trồng tương lai cho đất nước.
@@ -155,7 +159,8 @@ selected = st.sidebar.radio("Chọn chương:", list(DATA_BOOK.keys()))
 # Nội dung
 st.markdown(f"<h2 style='color: #1E40AF !important;'>📌 {selected}</h2>", unsafe_allow_html=True)
 content = DATA_BOOK[selected]
-st.markdown(f"<div class='noidung-sach'>{content}</div>", unsafe_allow_html=True)
+# Thêm style căn lề trực tiếp vào div để đảm bảo chắc chắn
+st.markdown(f"<div class='noidung-sach' style='text-align: justify;'>{content}</div>", unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
@@ -177,6 +182,6 @@ for c in st.session_state.comments:
     st.markdown(f"""
         <div style='background-color: #F3F4F6; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 5px solid #1E40AF;'>
             <strong style='color: #1E40AF !important;'>👤 {c['name']}</strong> <small>({c['time']})</small><br>
-            <p style='color: #000000 !important; margin-top: 5px;'>{c['text']}</p>
+            <p style='color: #000000 !important; margin-top: 5px; text-align: justify;'>{c['text']}</p>
         </div>
     """, unsafe_allow_html=True)
