@@ -144,8 +144,8 @@ Nếu ngày xưa cha ông mở đất bằng đôi tay chai sần, thì hôm nay
         Ngày trước, hành trình đến Tân Lộc gắn liền với những chuyến đò ngang, những đoạn đường nhỏ quanh co và sự cách trở của sông nước. Mỗi chuyến đi là một lần chờ nước lớn, chờ con đò cập bến. Chính địa thế cù lao vừa là nét đẹp riêng, vừa là giới hạn của phát triển. <br><br>
 Nhưng thời gian đã thay đổi tất cả. Những năm gần đây, hạ tầng giao thông tại khu vực Tân Lộc và vùng lân cận được quan tâm đầu tư mạnh hơn. Các tuyến đường nội ô được nâng cấp, mở rộng; giao thông kết nối với trung tâm khu vực Thốt Nốt và các địa bàn lân cận ngày càng thuận tiện hơn. Việc hoàn thiện hệ thống giao thông đã tạo điều kiện cho vận chuyển nông sản, phát triển dịch vụ và thu hút khách du lịch. <br><br>
 Con đường mới không chỉ là mặt đường bê tông hay nhựa phẳng lì. Đó còn là con đường mở lối cho tư duy mới: từ sản xuất nhỏ lẻ sang liên kết giá trị; từ làm nông đơn thuần sang kinh tế trải nghiệm; từ vùng quê khép kín sang điểm đến mở cửa đón bạn bè bốn phương. <br><br>
-Mỗi cây cầu được nối nhịp là một niềm vui. <br><br>
-Mỗi tuyến đường hoàn thành là một hy vọng. <br><br>
+Mỗi cây cầu được nối nhịp là một niềm vui. 
+Mỗi tuyến đường hoàn thành là một hy vọng. 
 Mỗi chuyến xe vào cù lao là một bước tiến của ngày mai. <br><br>
         **2. Kinh tế vườn – Từ mùa trái ngọt đến giá trị bền vững **<br>
         
@@ -156,7 +156,7 @@ Tuy nhiên, giá trị của Tân Lộc hôm nay không dừng ở chuyện bán
 •	Giữ gìn cảnh quan sinh thái. 
 •	Tạo thêm việc làm tại chỗ. 
 •	Giữ người trẻ ở lại quê hương lập nghiệp. 
-•	Kết nối nông dân với thị trường du lịch và dịch vụ. <br><br>
+•	Kết nối nông dân với thị trường du lịch và dịch vụ. 
 Một trái ổi có thể chỉ là nông sản.
 Nhưng khi gắn với câu chuyện quê hương, nó trở thành giá trị văn hóa.
 Một vườn cây có thể chỉ là nơi sản xuất.
@@ -188,18 +188,18 @@ Bởi trong thời đại con người mệt mỏi vì tốc độ, những nơi
 Đó mới là phát triển bền vững:
 Không đánh đổi bản sắc để lấy hiện đại.
 Không đánh mất ký ức để chạy theo hào nhoáng.
-Một đô thị đáng sống không chỉ có nhà cao đường rộng, mà còn là nơi con người thấy bình yên khi trở về.. <br><br>
+Một đô thị đáng sống không chỉ có nhà cao đường rộng, mà còn là nơi con người thấy bình yên khi trở về.
         **5. Những việc cần làm để Tân Lộc bứt phá mạnh mẽ hơn **<br>
         Để đi xa hơn trong giai đoạn mới, Tân Lộc cần tiếp tục tập trung vào những hướng đi chiến lược:
 Hoàn thiện hạ tầng kết nối
 Giao thông, bến bãi, bãi đỗ xe, hệ thống chỉ dẫn du lịch, hạ tầng số.
-Xây dựng thương hiệu điểm đến. <br><br>
+Xây dựng thương hiệu điểm đến.
 Tân Lộc cần được nhận diện rõ ràng trên bản đồ du lịch vùng Đồng bằng sông Cửu Long.
-Đào tạo nguồn nhân lực địa phương. <br><br>
+Đào tạo nguồn nhân lực địa phương. 
 Người dân làm du lịch cần được hỗ trợ về kỹ năng đón khách, truyền thông, quản trị dịch vụ.
-Phát triển sản phẩm đặc trưng. <br><br>
+Phát triển sản phẩm đặc trưng. 
 Ẩm thực địa phương, quà tặng nông sản chế biến, tour trải nghiệm văn hóa – giáo dục.
-Thu hút đầu tư có chọn lọc. <br><br>
+Thu hút đầu tư có chọn lọc. 
 Ưu tiên các dự án xanh, thân thiện môi trường, tôn trọng cộng đồng địa phương.
 <br><br>
 **6.Niềm tin vào ngày mai**<br>
@@ -207,7 +207,7 @@ Không có vùng đất nào giàu lên chỉ nhờ thiên nhiên ưu đãi. S�
 Tân Lộc đang có đất lành.
 Đang có người tâm huyết.
 Đang có cơ hội lớn.
-Đang có tương lai mở rộng phía trước. <br><br>
+Đang có tương lai mở rộng phía trước. 
 Rồi sẽ đến ngày, khi nhắc đến Tân Lộc, người ta không chỉ nhớ một cù lao giữa sông Hậu, mà còn nhớ đến một hình mẫu phát triển xanh, đẹp, nhân văn và giàu bản sắc của Cần Thơ. <br><br>
 Và khi ấy, những người con của quê hương sẽ mỉm cười tự hào rằng:
 Chúng tôi đã không để vùng đất này ngủ quên trong ký ức.
