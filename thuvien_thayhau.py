@@ -138,8 +138,7 @@ Con cháu hôm nay mở tương lai bằng tri thức và khát vọng.
 
 Có những vùng đất chỉ cần nhắc tên là người ta nhớ đến quá khứ. Nhưng cũng có những vùng đất vừa giữ được ký ức xưa, vừa bước mạnh vào tương lai bằng khát vọng mới. Tân Lộc chính là nơi như thế. <br><br>
 Từ một cù lao yên bình giữa dòng sông Hậu, nơi từng gắn với ghe xuồng, bến nước, vườn cây và những con đường quê lặng lẽ… hôm nay Tân Lộc đang chuyển mình từng ngày. Sự đổi thay ấy không ồn ào, không vội vã, mà bền bỉ như chính tính cách của người dân nơi đây: chắc chắn, chân thành và giàu ý chí. <br><br>
-Nếu ngày xưa cha ông mở đất bằng đôi tay chai sần, thì hôm nay con cháu đang mở tương lai bằng tri thức, bằng tư duy kinh tế mới và bằng niềm tin vào sức bật của quê hương. <br><br>
-
+Nếu ngày xưa cha ông mở đất bằng đôi tay chai sần, thì hôm nay con cháu đang mở tương lai bằng tri thức, bằng tư duy kinh tế mới và bằng niềm tin vào sức bật của quê hương. 
         **1. Con đường mới mở ra tương lai**<br>
         Ngày trước, hành trình đến Tân Lộc gắn liền với những chuyến đò ngang, những đoạn đường nhỏ quanh co và sự cách trở của sông nước. Mỗi chuyến đi là một lần chờ nước lớn, chờ con đò cập bến. Chính địa thế cù lao vừa là nét đẹp riêng, vừa là giới hạn của phát triển. <br><br>
 Nhưng thời gian đã thay đổi tất cả. Những năm gần đây, hạ tầng giao thông tại khu vực Tân Lộc và vùng lân cận được quan tâm đầu tư mạnh hơn. Các tuyến đường nội ô được nâng cấp, mở rộng; giao thông kết nối với trung tâm khu vực Thốt Nốt và các địa bàn lân cận ngày càng thuận tiện hơn. Việc hoàn thiện hệ thống giao thông đã tạo điều kiện cho vận chuyển nông sản, phát triển dịch vụ và thu hút khách du lịch. <br><br>
