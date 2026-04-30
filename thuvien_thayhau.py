@@ -1,8 +1,8 @@
-
 import streamlit as st
+import os
 from datetime import datetime
 
-# 1. CẤU HÌNH HỆ THỐNG
+# 1. CẤU HÌNH HỆ THỐNG & GIAO DIỆN
 st.set_page_config(page_title="Thư Viện Số Thầy Hậu", layout="wide")
 
 st.markdown("""
@@ -27,25 +27,32 @@ st.markdown("""
     section[data-testid="stSidebar"] { background-color: #F1F5F9 !important; }
     section[data-testid="stSidebar"] * { color: #000000 !important; }
     
-    /* Làm đẹp cho Selectbox chọn sách */
+    /* FIX LỖI MÀU Ô CHỌN SÁCH: Đổi thành nền trắng, viền xanh, chữ đen */
     div[data-baseweb="select"] > div {
-        background-color: #1E40AF !important;
-        color: white !important;
+        background-color: #FFFFFF !important; 
+        border: 2px solid #1E40AF !important; 
         border-radius: 8px !important;
     }
-    div[data-baseweb="select"] * { color: white !important; font-weight: bold; }
+    div[data-baseweb="select"] * { 
+        color: #000000 !important; 
+        font-weight: bold; 
+    }
 
+    /* Định dạng nút bấm */
     .stButton>button {
         background-color: #1E40AF !important;
         color: #FFFFFF !important;
         font-weight: bold !important;
         border-radius: 8px;
     }
-    .stButton>button p { color: #FFFFFF !important; }
+    .stButton>button p, .stButton>button span { 
+        color: #FFFFFF !important; 
+        -webkit-text-fill-color: #FFFFFF !important;
+    }
     </style>
     """, unsafe_allow_html=True)
 
-# 2. DỮ LIỆU ĐA TÁC PHẨM (THƯ VIỆN SỐ)
+# 2. DỮ LIỆU 2 TÁC PHẨM CŨ (Giữ nguyên làm nền tảng)
 LIBRARY_DATA = {
     "Ký Ức Vùng Đất Tân Lộc": {
         "Lời mở đầu": """
@@ -359,49 +366,72 @@ Từ cậu bé sinh ra nơi Tân Lộc đến người thầy được xã hội
 Cuộc đời thầy nhắc chúng ta rằng: vĩ đại không nhất thiết phải là điều quá lớn lao. Đôi khi, vĩ đại là làm tốt công việc của mình suốt nhiều năm, sống tử tế với mọi người, không ngừng học hỏi và dành trái tim cho thế hệ mai sau.
 Người thầy rồi sẽ già đi theo năm tháng. Nhưng những hạt giống tri thức và cảm hứng mà thầy gieo xuống sẽ tiếp tục nảy mầm trong biết bao cuộc đời khác.
 Và đó mới là sự bất tử đẹp nhất của nghề giáo.
-    """
+"""
     }
 }
+
+# 3. HỆ THỐNG TỰ ĐỘNG ĐỌC TÁC PHẨM MỚI TỪ GITHUB
+# Nó sẽ tự tìm thư mục tên là "TacPham", nếu có sách mới nó sẽ tự động nối vào App
+if os.path.exists("TacPham"):
+    for ten_sach in os.listdir("TacPham"):
+        duong_dan_sach = os.path.join("TacPham", ten_sach)
+        if os.path.isdir(duong_dan_sach):
+            if ten_sach not in LIBRARY_DATA:
+                LIBRARY_DATA[ten_sach] = {}
+            
+            # Sắp xếp các file theo tên (VD: 01_..., 02_...)
+            cac_file = sorted(os.listdir(duong_dan_sach))
+            for ten_file in cac_file:
+                if ten_file.endswith(".txt"):
+                    # Lấy tên chương (bỏ đuôi .txt)
+                    ten_chuong = ten_file.replace(".txt", "")
+                    # Nếu anh Hậu có đặt số thứ tự (ví dụ: 01_Chương 1), code sẽ tự xóa số 01_ đi cho đẹp
+                    if "_" in ten_chuong and ten_chuong.split("_")[0].isdigit():
+                        ten_chuong = ten_chuong.split("_", 1)[1]
+                        
+                    # Mở file đọc nội dung và tự động tạo xuống dòng
+                    with open(os.path.join(duong_dan_sach, ten_file), "r", encoding="utf-8") as f:
+                        noidung = f.read()
+                    LIBRARY_DATA[ten_sach][ten_chuong] = noidung.replace('\n', '<br>')
 
 if 'comments' not in st.session_state:
     st.session_state.comments = []
 
-# 3. GIAO DIỆN CHÍNH
+# 4. GIAO DIỆN CHÍNH
 st.markdown("<h1 style='text-align: center; color: #1E40AF !important;'>📚 THƯ VIỆN SỐ THẦY HẬU</h1>", unsafe_allow_html=True)
 
-# Sidebar - CHỌN SÁCH VÀ CHỌN CHƯƠNG
 st.sidebar.markdown("## 📖 CHỌN TÁC PHẨM")
 selected_book = st.sidebar.selectbox("", list(LIBRARY_DATA.keys()))
 
 st.sidebar.markdown("## 📑 MỤC LỤC")
-selected_chapter = st.sidebar.radio("", list(LIBRARY_DATA[selected_book].keys()))
-
-# Nội dung ở cột phải
-st.markdown(f"<h3 style='text-align: center; color: #4B5563 !important;'>Tác phẩm: {selected_book}</h3>", unsafe_allow_html=True)
-st.markdown(f"<h2 style='color: #1E40AF !important;'>📌 {selected_chapter}</h2>", unsafe_allow_html=True)
-
-content = LIBRARY_DATA[selected_book][selected_chapter]
-st.markdown(f"<div class='noidung-sach'>{content}</div>", unsafe_allow_html=True)
+# Đảm bảo nếu sách chưa có chương nào thì không bị lỗi
+danh_sach_chuong = list(LIBRARY_DATA[selected_book].keys())
+if danh_sach_chuong:
+    selected_chapter = st.sidebar.radio("", danh_sach_chuong)
+    
+    st.markdown(f"<h3 style='text-align: center; color: #4B5563 !important;'>Tác phẩm: {selected_book}</h3>", unsafe_allow_html=True)
+    st.markdown(f"<h2 style='color: #1E40AF !important;'>📌 {selected_chapter}</h2>", unsafe_allow_html=True)
+    
+    content = LIBRARY_DATA[selected_book][selected_chapter]
+    st.markdown(f"<div class='noidung-sach'>{content}</div>", unsafe_allow_html=True)
+else:
+    st.markdown("<h3 style='text-align: center; color: red !important;'>Cuốn sách này đang trong quá trình biên soạn...</h3>", unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
-# 4. PHẦN BÌNH LUẬN
+# 5. PHẦN BÌNH LUẬN
 st.markdown("### 💬 Bạn đọc nhận xét")
 with st.form("form_comment", clear_on_submit=True):
     name_user = st.text_input("Tên của anh/chị:")
     comment_user = st.text_area("Cảm nhận:")
     btn = st.form_submit_button("GỬI BÌNH LUẬN")
     if btn and name_user and comment_user:
-        # Cập nhật bình luận kèm theo tên sách để biết độc giả đang bình luận cho sách nào
         st.session_state.comments.insert(0, {
-            "name": name_user,
-            "text": comment_user,
-            "book": selected_book,
+            "name": name_user, "text": comment_user, "book": selected_book,
             "time": datetime.now().strftime("%d/%m/%Y %H:%M")
         })
         st.rerun()
 
-# Chỉ hiển thị bình luận của cuốn sách đang được chọn
 for c in st.session_state.comments:
     if c.get("book") == selected_book or "book" not in c:
         st.markdown(f"""
