@@ -79,8 +79,6 @@ Từ nhiều miền quê khác nhau, những lưu dân đã theo ghe thuyền xu
 Chính những con người vô danh ấy là những viên gạch đầu tiên dựng nên hình hài của Tân Lộc hôm nay. <br><br>       
         **2. Hành trình mở đất gian nan**<br>
         Khai phá miền đất mới chưa bao giờ là chuyện dễ dàng. Người xưa phải đối mặt với nước ngập theo mùa, muỗi mòng, bệnh tật, thú dữ và sự khắc nghiệt của thiên nhiên. Có những đêm mưa lớn nước dâng ngập mái lá. Có những mùa thất bát, cả nhà phải chắt chiu từng hạt gạo. <br><br>
-
-
 Nhưng càng gian khó, ý chí con người càng sáng rõ. Họ học cách sống cùng con nước, tận dụng phù sa, cải tạo đất đai, chọn cây trồng phù hợp, dựng xóm làng theo nhịp điệu thiên nhiên. <br><br>
 Từ vùng đất hoang vu, từng thửa ruộng được mở ra.
 Từ bãi bồi hoang lạnh, từng khu vườn bắt đầu bén rễ.
