@@ -1,3 +1,4 @@
+
 import streamlit as st
 from datetime import datetime
 
@@ -12,7 +13,6 @@ st.markdown("""
         -webkit-text-fill-color: #000000 !important;
     }
     
-    /* CHỈNH SỬA TẠI ĐÂY: CĂN THẲNG 2 LỀ */
     .noidung-sach {
         background-color: #F8F9FA !important;
         padding: 30px !important;
@@ -21,11 +21,20 @@ st.markdown("""
         color: #000000 !important;
         font-size: 20px !important;
         line-height: 1.8 !important;
-        text-align: justify !important; /* Lệnh thần thánh để căn thẳng 2 lề */
+        text-align: justify !important;
     }
 
     section[data-testid="stSidebar"] { background-color: #F1F5F9 !important; }
     section[data-testid="stSidebar"] * { color: #000000 !important; }
+    
+    /* Làm đẹp cho Selectbox chọn sách */
+    div[data-baseweb="select"] > div {
+        background-color: #1E40AF !important;
+        color: white !important;
+        border-radius: 8px !important;
+    }
+    div[data-baseweb="select"] * { color: white !important; font-weight: bold; }
+
     .stButton>button {
         background-color: #1E40AF !important;
         color: #FFFFFF !important;
@@ -36,9 +45,203 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# 2. DỮ LIỆU SÁCH (Anh cứ tiếp tục dán nội dung vào đây nhé)
-DATA_BOOK = {
-    "Lời nói đầu": """
+# 2. DỮ LIỆU ĐA TÁC PHẨM (THƯ VIỆN SỐ)
+LIBRARY_DATA = {
+    "Ký Ức Vùng Đất Tân Lộc": {
+        "Lời mở đầu": """
+        Tân Lộc là vùng đất của phù sa, của cây lành trái ngọt, của những con người chân chất và giàu nghĩa tình. Nơi đây không chỉ là quê hương của biết bao thế hệ, mà còn là miền ký ức sống động trong trái tim những người từng sinh ra, lớn lên và gắn bó với mảnh đất này.
+<br><br>
+        Cuốn sách “Ký ức vùng đất Tân Lộc” được viết với mong muốn lưu giữ những giá trị lịch sử, văn hóa, con người và hành trình phát triển của quê hương. Đây không chỉ là hồi ức về một vùng đất, mà còn là lời mời gọi tất cả cùng chung tay vun đắp để Tân Lộc ngày càng phát triển thịnh vượng hơn, đặc biệt trong lĩnh vực du lịch sinh thái và văn hóa cộng đồng.
+        """,
+        "Chương 1: Tân Lộc - Vùng đất bồi đắp bởi phù sa": """
+        **1. Vị trí địa lý và dáng hình vùng đất**<br>
+        Tân Lộc thuộc thành phố Cần Thơ, nằm giữa hệ thống sông ngòi chằng chịt của miền Tây Nam Bộ. Địa thế nơi đây được thiên nhiên ưu đãi với những doi đất màu mỡ, bao quanh bởi dòng nước hiền hòa.<br>
+        Nhìn từ xa, Tân Lộc như một bức tranh xanh mướt, nơi những hàng cây nối tiếp nhau, những khu vườn sum suê trái ngọt và những mái nhà ẩn hiện dưới bóng cây.<br><br>
+        **2. Những dòng sông nuôi lớn xóm làng**<br>
+        Sông nước là mạch sống của Tân Lộc. Từ bao đời nay, con nước đã mang phù sa về bồi đắp đất đai, mang cá tôm về nuôi sống con người, và mang theo cả nhịp sống đặc trưng của miền quê sông nước. Trẻ em lớn lên cùng tiếng chèo xuồng, người lớn gắn bó với ghe thuyền, còn người già thường ngồi bên bến nước kể chuyện xưa.<br><br>
+        **3. Đất đai màu mỡ và mùa trái ngọt**<br>
+        Nhờ phù sa bồi tụ, Tân Lộc nổi tiếng với những khu vườn cây ăn trái trĩu quả: chôm chôm, mận, xoài, nhãn, sầu riêng... Mỗi mùa trái chín là một mùa vui, mùa của lao động và thành quả. Những khu vườn không chỉ mang lại kinh tế, mà còn tạo nên nét đẹp riêng cho quê hương.<br><br>
+        **4. Thiên nhiên trong ký ức người dân**<br>
+        Trong ký ức của người Tân Lộc, thiên nhiên không chỉ là cảnh vật mà là người bạn thân thiết. Đó là buổi sáng sương phủ mặt sông, trưa hè nghe tiếng chim gọi bầy, chiều xuống ngắm ánh hoàng hôn nhuộm đỏ dòng nước. Thiên nhiên ấy đã nuôi dưỡng tâm hồn bao thế hệ.
+        """,
+        "Chương 2: Dấu chân tiền nhân khai phá": """
+        **Mở đầu chương**<br>
+
+Mỗi vùng đất đều có một lịch sử riêng. Có nơi lịch sử được ghi bằng thành quách, bia đá. Có nơi lịch sử nằm trong những câu chuyện truyền đời, trong tên đất, tên sông, trong nếp sống của người dân và trong từng tấc đất được khai phá bằng mồ hôi của cha ông. Tân Lộc là một vùng đất như thế. <br><br>
+
+Nơi đây không chỉ được bồi đắp bởi phù sa của sông Hậu, mà còn được bồi đắp bởi ý chí mở cõi, tinh thần kiên cường và dấu chân của bao lớp người đi trước. Trong dòng chảy ấy, dân gian còn lưu truyền những câu chuyện gắn với thời kỳ biến động của đất nước, khi bước chân của Nguyễn Ánh từng xuôi ngược miền Tây Nam Bộ trên hành trình dựng lại cơ đồ. Những giai thoại ấy, dù được kể bằng ký ức dân gian, vẫn làm cho vùng đất này thêm chiều sâu lịch sử và niềm tự hào. <br><br>
+
+**1. Những lớp cư dân đầu tiên**<br>
+	Thuở ban đầu, vùng đất Tân Lộc còn hoang sơ, cây cối um tùm, sông rạch chằng chịt, thú hoang nhiều hơn dấu chân người. Nhưng chính nơi tưởng như xa xôi ấy lại mở ra cơ hội sống cho những đoàn người đi tìm đất mới. <br><br>
+
+Từ nhiều miền quê khác nhau, những lưu dân đã theo ghe thuyền xuôi dòng sông lớn đến đây. Họ mang theo gia đình, vài nông cụ đơn sơ, chút hạt giống và niềm hy vọng về một nơi an cư lạc nghiệp. Không có gì ngoài đôi bàn tay và ý chí, họ bắt đầu dựng chòi, khai hoang, đào mương, trồng lúa, trồng cây trái. <br><br>
+
+Chính những con người vô danh ấy là những viên gạch đầu tiên dựng nên hình hài của Tân Lộc hôm nay. <br><br>       
+        **2. Hành trình mở đất gian nan**<br>
+        Khai phá miền đất mới chưa bao giờ là chuyện dễ dàng. Người xưa phải đối mặt với nước ngập theo mùa, muỗi mòng, bệnh tật, thú dữ và sự khắc nghiệt của thiên nhiên. Có những đêm mưa lớn nước dâng ngập mái lá. Có những mùa thất bát, cả nhà phải chắt chiu từng hạt gạo. <br><br>
+
+
+Nhưng càng gian khó, ý chí con người càng sáng rõ. Họ học cách sống cùng con nước, tận dụng phù sa, cải tạo đất đai, chọn cây trồng phù hợp, dựng xóm làng theo nhịp điệu thiên nhiên. <br><br>
+Từ vùng đất hoang vu, từng thửa ruộng được mở ra.
+Từ bãi bồi hoang lạnh, từng khu vườn bắt đầu bén rễ.
+Từ những mái lá tạm bợ, tiếng trẻ thơ đã cất lên giữa xóm làng.
+Tân Lộc ra đời từ sự bền gan như thế.<br><br>
+**3. Dấu xưa thời Nguyễn Ánh – Âm vang một thời mở nước**<br>
+
+Trong ký ức dân gian vùng sông Hậu, nhiều nơi còn lưu truyền chuyện Nguyễn Ánh (sau này là vua Gia Long) từng đi qua miền Tây Nam Bộ trong những năm bôn tẩu, lánh nạn và tập hợp lực lượng vào cuối thế kỷ XVIII. Trên hành trình xuôi ngược giữa các nhánh sông lớn, vùng đất cù lao trù phú như Tân Lộc được xem là nơi ghe thuyền có thể dừng chân, tiếp nước, ẩn náu hoặc kết nối với cư dân địa phương. <br><br>
+
+Dù không phải mọi chi tiết đều được ghi chép đầy đủ trong sử liệu địa phương, nhưng việc gắn vùng đất này với hành trình của Nguyễn Ánh cho thấy một điều quan trọng: Tân Lộc nằm trong không gian lịch sử lớn của Nam Bộ thời mở cõi và biến động quốc gia. <br><br>
+
+Hãy hình dung vào một buổi sớm xa xưa, màn sương còn phủ trên mặt sông Hậu. Những chiếc thuyền lặng lẽ lướt qua cù lao. Người dân ven sông nhìn theo đoàn ghe mang theo vận mệnh của một thời đại. Có thể nơi đây từng chứng kiến bước chân của những con người làm nên lịch sử, từng nghe tiếng mái chèo gấp gáp giữa thời loạn lạc. <br><br>
+
+Dù là giai thoại hay sự kiện được lưu truyền, điều còn lại đến hôm nay chính là niềm tự hào: vùng đất Tân Lộc không đứng ngoài lịch sử dân tộc. Tân Lộc đã hiện diện trong những năm tháng hào hùng của phương Nam. <br><br>
+
+Lịch sử đôi khi không chỉ nằm trong sách vở.
+Lịch sử còn sống trong lòng dân. <br><br>
+        
+**4. Lập làng, dựng xóm, giữ đất quê hương**<br>
+        Khi cuộc sống dần ổn định, cư dân bắt đầu tổ chức cộng đồng bền vững hơn. Những xóm nhỏ hình thành ven sông, ven rạch. Người dân cùng nhau mở lối đi, dựng chợ, lập nơi sinh hoạt tín ngưỡng, chăm lo chuyện học hành cho con trẻ. <br><br>
+
+Từ đó, Tân Lộc không còn là nơi “đến ở”, mà trở thành quê hương thật sự. Nơi có mồ mả tổ tiên, có ký ức gia đình, có tiếng gọi thân quen của xóm giềng. <br><br>
+
+Bao thế hệ tiếp nối nhau giữ đất bằng lao động, bằng tình đoàn kết và bằng lòng gắn bó sâu nặng với nơi chôn nhau cắt rốn. <br><br>
+        **5. Truyền thống cần cù qua bao thế hệ**<br>
+        Di sản lớn nhất mà tiền nhân để lại cho Tân Lộc không chỉ là đất đai màu mỡ, mà là phẩm chất con người. Đó là sự cần cù, nhẫn nại, biết vượt khó và không ngại bắt đầu từ gian nan. <br><br>
+
+Tinh thần ấy truyền từ ông bà đến cha mẹ, từ cha mẹ đến con cháu. Hôm nay, trong thời đại mới, truyền thống khai phá ấy không còn là phát rừng mở đất, mà là mở mang tri thức, đổi mới tư duy, phát triển kinh tế xanh và xây dựng quê hương giàu đẹp hơn. <br><br>
+
+Cha ông mở đất bằng cuốc xẻng.
+Con cháu hôm nay mở tương lai bằng tri thức và khát vọng.
+        """,
+        "Chương 3: Nếp sống và văn hóa Tân Lộc": """
+        **1. Tình làng nghĩa xóm**<br>
+        Ở Tân Lộc, hàng xóm không chỉ là người ở gần nhau, mà còn là người thân trong những lúc khó khăn. Khi nhà ai có việc, cả xóm cùng đến giúp.<br><br>
+        **2. Chợ quê, đình làng và lễ hội**<br>
+        Chợ quê là nơi trao đổi hàng hóa và gặp gỡ tình thân. Đình làng là nơi giữ gìn tín ngưỡng, tổ chức lễ hội, nhắc nhớ cội nguồn.<br><br>
+        **3. Tiếng nói, giọng hò, câu hát**<br>
+        Những câu hò, điệu lý, tiếng ru con vang lên giữa xóm làng là âm thanh đặc trưng của quê hương. Đó là nét văn hóa bình dị mà sâu sắc.<br><br>
+        **4. Phong tục tập quán xưa và nay**<br>
+        Từ cưới hỏi, giỗ chạp đến Tết Nguyên đán, người Tân Lộc luôn coi trọng lễ nghĩa, sự sum vầy và lòng biết ơn tổ tiên.
+        """,
+        "Chương 4: Những năm tháng chiến tranh và ký ức hào hùng": """
+        **1. Tân Lộc trong thời loạn lạc**<br>
+        Chiến tranh đã để lại nhiều đau thương cho quê hương. Những ngày bom đạn, cuộc sống người dân vô cùng gian khổ.<br><br>
+        **2. Người dân và tinh thần yêu nước**<br>
+        Dù khó khăn, người dân Tân Lộc vẫn một lòng yêu nước, góp sức người sức của cho kháng chiến.<br><br>
+        **3. Những hy sinh thầm lặng**<br>
+        Có những người mẹ tiễn con ra trận, có những người cha âm thầm gánh vác gia đình, có những thanh niên mãi mãi không trở về.<br><br>
+        **4. Ký ức không thể nào quên**<br>
+        Những mất mát ấy trở thành ký ức thiêng liêng, nhắc nhở thế hệ hôm nay biết quý trọng hòa bình.
+        """,
+        "Chương 5: Tân Lộc đổi mới và phát triển": """
+        **Mở đầu chương**<br>
+
+Có những vùng đất chỉ cần nhắc tên là người ta nhớ đến quá khứ. Nhưng cũng có những vùng đất vừa giữ được ký ức xưa, vừa bước mạnh vào tương lai bằng khát vọng mới. Tân Lộc chính là nơi như thế. <br><br>
+Từ một cù lao yên bình giữa dòng sông Hậu, nơi từng gắn với ghe xuồng, bến nước, vườn cây và những con đường quê lặng lẽ… hôm nay Tân Lộc đang chuyển mình từng ngày. Sự đổi thay ấy không ồn ào, không vội vã, mà bền bỉ như chính tính cách của người dân nơi đây: chắc chắn, chân thành và giàu ý chí. <br><br>
+Nếu ngày xưa cha ông mở đất bằng đôi tay chai sần, thì hôm nay con cháu đang mở tương lai bằng tri thức, bằng tư duy kinh tế mới và bằng niềm tin vào sức bật của quê hương. <br><br>
+
+        **1. Con đường mới mở ra tương lai**<br>
+        Ngày trước, hành trình đến Tân Lộc gắn liền với những chuyến đò ngang, những đoạn đường nhỏ quanh co và sự cách trở của sông nước. Mỗi chuyến đi là một lần chờ nước lớn, chờ con đò cập bến. Chính địa thế cù lao vừa là nét đẹp riêng, vừa là giới hạn của phát triển. <br><br>
+Nhưng thời gian đã thay đổi tất cả. Những năm gần đây, hạ tầng giao thông tại khu vực Tân Lộc và vùng lân cận được quan tâm đầu tư mạnh hơn. Các tuyến đường nội ô được nâng cấp, mở rộng; giao thông kết nối với trung tâm khu vực Thốt Nốt và các địa bàn lân cận ngày càng thuận tiện hơn. Việc hoàn thiện hệ thống giao thông đã tạo điều kiện cho vận chuyển nông sản, phát triển dịch vụ và thu hút khách du lịch. <br><br>
+Con đường mới không chỉ là mặt đường bê tông hay nhựa phẳng lì. Đó còn là con đường mở lối cho tư duy mới: từ sản xuất nhỏ lẻ sang liên kết giá trị; từ làm nông đơn thuần sang kinh tế trải nghiệm; từ vùng quê khép kín sang điểm đến mở cửa đón bạn bè bốn phương. <br><br>
+Mỗi cây cầu được nối nhịp là một niềm vui. <br><br>
+Mỗi tuyến đường hoàn thành là một hy vọng. <br><br>
+Mỗi chuyến xe vào cù lao là một bước tiến của ngày mai. <br><br>
+        **2. Kinh tế vườn – Từ mùa trái ngọt đến giá trị bền vững **<br>
+        
+Tân Lộc từ lâu được xem là vùng đất của cây lành trái ngọt. Nhờ lớp phù sa màu mỡ của sông Hậu, nơi đây phát triển mạnh các mô hình vườn cây ăn trái tập trung, trở thành lợi thế kinh tế đặc sắc của địa phương. Các loại trái cây theo mùa như mận, ổi, nhãn, xoài, chôm chôm… không chỉ là nông sản mà còn là “thương hiệu cảm xúc” của vùng đất này. <br><br>
+Tuy nhiên, giá trị của Tân Lộc hôm nay không dừng ở chuyện bán trái cây. Người dân đã dần chuyển từ tư duy “bán sản phẩm” sang “bán trải nghiệm”. Du khách đến vườn không chỉ mua vài ký trái cây mang về, mà còn muốn tự tay hái quả, nghe kể chuyện làm vườn, ăn bữa cơm quê, chèo xuồng dưới rặng dừa, cảm nhận cuộc sống miệt vườn chân thật. <br><br>
+Đó là bước chuyển quan trọng của kinh tế nông nghiệp hiện đại:
+•	Tăng giá trị trên cùng diện tích đất. 
+•	Giữ gìn cảnh quan sinh thái. 
+•	Tạo thêm việc làm tại chỗ. 
+•	Giữ người trẻ ở lại quê hương lập nghiệp. 
+•	Kết nối nông dân với thị trường du lịch và dịch vụ. <br><br>
+Một trái ổi có thể chỉ là nông sản.
+Nhưng khi gắn với câu chuyện quê hương, nó trở thành giá trị văn hóa.
+Một vườn cây có thể chỉ là nơi sản xuất.
+Nhưng khi mở cửa đón du khách, nó trở thành tài sản du lịch.
+<br><br>
+        **3. Du lịch sinh thái – Đánh thức viên ngọc giữa sông Hậu**<br>
+Theo các định hướng phát triển du lịch của thành phố Cần Thơ, cù lao Tân Lộc được xác định là không gian du lịch đặc thù giữa sông Hậu, có lợi thế lớn về sinh thái nông nghiệp, văn hóa sông nước và đời sống cộng đồng nguyên bản. Đây là nền tảng quan trọng để xây dựng sản phẩm du lịch khác biệt, tránh trùng lặp với các điểm đến khác. <br><br>
+Tân Lộc có những điều mà nhiều nơi mơ ước:
+Thiên nhiên còn nguyên nét hiền hòa
+Không khí trong lành, cây xanh phủ mát, nhịp sống chậm rãi và không gian sông nước bao quanh tạo cảm giác thư thái hiếm có.
+Bản sắc địa phương rõ nét
+Từ tiếng nói, món ăn, cách tiếp khách đến nếp sinh hoạt hằng ngày – tất cả đều mang vẻ đẹp mộc mạc mà cuốn hút. <br><br>
+Tài nguyên trải nghiệm đa dạng
+•	Tham quan vườn trái cây 
+•	Chèo xuồng trong rạch nhỏ 
+•	Trải nghiệm làm nông dân 
+•	Ẩm thực miệt vườn 
+•	Tham quan nhà cổ 
+•	Nghỉ homestay cộng đồng 
+•	Ngắm bình minh và hoàng hôn trên sông Hậu 
+Tiềm năng đầu tư còn rộng mở
+Các mô hình nghỉ dưỡng sinh thái, farmstay, du lịch cộng đồng, sản phẩm OCOP, tour giáo dục trải nghiệm… đều có thể phát triển nếu được quy hoạch đồng bộ và đầu tư bài bản. <br><br>
+Tân Lộc không cần trở thành nơi ồn ào náo nhiệt.
+Tân Lộc chỉ cần là chính mình – xanh hơn, đẹp hơn, chuyên nghiệp hơn.
+Bởi trong thời đại con người mệt mỏi vì tốc độ, những nơi bình yên như Tân Lộc lại càng quý giá. <br><br>
+        **4. Diện mạo đô thị hôm nay – Sáng hơn, đẹp hơn, đáng sống hơn **<br>
+        Sự phát triển của Tân Lộc không chỉ nằm ở du lịch hay nông nghiệp, mà còn thể hiện trong diện mạo dân cư và chất lượng sống. Những ngôi nhà mới khang trang mọc lên bên các tuyến đường sạch đẹp. Trường học, thiết chế văn hóa, cơ sở dân sinh từng bước được nâng cao. Đời sống vật chất của người dân ngày càng cải thiện rõ rệt. <br><br>
+Điều đáng quý là giữa sự đổi thay ấy, Tân Lộc vẫn giữ được hồn quê. Vẫn còn đó hàng cây ven đường, tiếng chim gọi sáng, bữa cơm chan chứa nghĩa tình, nụ cười hiền hậu của người dân quê. <br><br>
+Đó mới là phát triển bền vững:
+Không đánh đổi bản sắc để lấy hiện đại.
+Không đánh mất ký ức để chạy theo hào nhoáng.
+Một đô thị đáng sống không chỉ có nhà cao đường rộng, mà còn là nơi con người thấy bình yên khi trở về.. <br><br>
+        **5. Những việc cần làm để Tân Lộc bứt phá mạnh mẽ hơn **<br>
+        Để đi xa hơn trong giai đoạn mới, Tân Lộc cần tiếp tục tập trung vào những hướng đi chiến lược:
+Hoàn thiện hạ tầng kết nối
+Giao thông, bến bãi, bãi đỗ xe, hệ thống chỉ dẫn du lịch, hạ tầng số.
+Xây dựng thương hiệu điểm đến. <br><br>
+Tân Lộc cần được nhận diện rõ ràng trên bản đồ du lịch vùng Đồng bằng sông Cửu Long.
+Đào tạo nguồn nhân lực địa phương. <br><br>
+Người dân làm du lịch cần được hỗ trợ về kỹ năng đón khách, truyền thông, quản trị dịch vụ.
+Phát triển sản phẩm đặc trưng. <br><br>
+Ẩm thực địa phương, quà tặng nông sản chế biến, tour trải nghiệm văn hóa – giáo dục.
+Thu hút đầu tư có chọn lọc. <br><br>
+Ưu tiên các dự án xanh, thân thiện môi trường, tôn trọng cộng đồng địa phương.
+<br><br>
+**6.Niềm tin vào ngày mai**<br>
+Không có vùng đất nào giàu lên chỉ nhờ thiên nhiên ưu đãi. Sự thịnh vượng chỉ đến khi con người biết nhìn ra giá trị của nơi mình đang sống và cùng nhau hành động. <br><br>
+Tân Lộc đang có đất lành.
+Đang có người tâm huyết.
+Đang có cơ hội lớn.
+Đang có tương lai mở rộng phía trước. <br><br>
+Rồi sẽ đến ngày, khi nhắc đến Tân Lộc, người ta không chỉ nhớ một cù lao giữa sông Hậu, mà còn nhớ đến một hình mẫu phát triển xanh, đẹp, nhân văn và giàu bản sắc của Cần Thơ. <br><br>
+Và khi ấy, những người con của quê hương sẽ mỉm cười tự hào rằng:
+Chúng tôi đã không để vùng đất này ngủ quên trong ký ức.
+Chúng tôi đã cùng nhau đánh thức tương lai của Tân Lộc.
+""",
+        "Chương 6: Người Tân Lộc và những câu chuyện đời thường": """
+        **1. Những con người bình dị phi thường**<br>
+        Đó là người nông dân cần mẫn, người thầy tận tụy, người mẹ hy sinh, người trẻ dám mơ ước và lập nghiệp.<br><br>
+        **2. Ký ức tuổi thơ bên bến nước**<br>
+        Tuổi thơ ở Tân Lộc gắn với tắm sông, bắt cá, hái trái, chạy chân trần trên con đường quê và những buổi trưa nghe tiếng ve kêu.<br><br>
+        **3. Chuyện học hành, lập nghiệp xa quê**<br>
+        Nhiều người con Tân Lộc đi xa để học tập, làm việc, nhưng trong tim luôn mang theo hình bóng quê nhà.<br><br>
+        **4. Nỗi nhớ quê trong lòng người xa xứ**<br>
+        Dù ở nơi đâu, chỉ cần nghe giọng nói miền Tây hay nhìn thấy dòng sông là nỗi nhớ quê lại ùa về.
+        """,
+        "Chương 7: Giữ gìn hồn quê cho thế hệ mai sau": """
+        **1. Giá trị truyền thống cần được lưu giữ**<br>
+        Những phong tục đẹp, tình làng nghĩa xóm, đạo lý uống nước nhớ nguồn cần được gìn giữ như báu vật tinh thần.<br><br>
+        **2. Giáo dục tình yêu quê hương**<br>
+        Thế hệ trẻ cần được học về lịch sử quê hương, hiểu công lao cha ông và tự hào về nơi mình sinh ra.<br><br>
+        **3. Kết nối cộng đồng hôm nay**<br>
+        Người dân địa phương, người xa quê, doanh nghiệp và chính quyền cần cùng nhau kết nối để xây dựng quê hương.<br><br>
+        **4. Viết tiếp câu chuyện Tân Lộc**<br>
+        Mỗi thế hệ sẽ viết thêm một chương mới cho Tân Lộc bằng hành động thiết thực, bằng lao động và khát vọng phát triển.
+        """,
+        "Kết luận": """
+        **Tân Lộc – vùng đất của nghĩa tình**<br>
+        Tân Lộc đẹp không chỉ bởi cây trái sum suê hay dòng sông hiền hòa, mà đẹp bởi con người sống chan hòa, thủy chung và nghĩa tình.<br><br>
+        **Khi ký ức còn sống, quê hương còn mãi**<br>
+        Một vùng đất sẽ trường tồn khi ký ức về nó vẫn còn được kể lại, được gìn giữ và tiếp nối. Ký ức vùng đất Tân Lộc không chỉ là câu chuyện của hôm qua, mà còn là niềm tin cho ngày mai – khi mọi người cùng chung tay xây dựng quê hương ngày càng thịnh vượng, văn minh và đáng tự hào.
+        """
+    },
+    "Người Thầy Giữa Đời Thường": {
+        "Lời nói đầu": """
     Có những con người không cần bước lên sân khấu lớn vẫn khiến người khác kính trọng. Có những cuộc đời không ồn ào nhưng để lại dấu ấn sâu sắc trong lòng bao thế hệ. Và có những người thầy, mỗi ngày lặng lẽ đến trường, mang theo tri thức, tình thương và trách nhiệm để vun trồng tương lai cho đất nước.
 Cuốn sách này kể về thầy Trần Trung Hậu – một giáo viên môn Tin học tại Trường THCS Thuận Hưng, Thành phố Cần Thơ. Hơn hai mươi sáu năm đứng lớp là hơn hai mươi sáu năm bền bỉ với bảng đen, phấn trắng, với những bài giảng đổi mới từng ngày, với niềm vui khi học trò tiến bộ và những trăn trở khi còn em nhỏ nào chưa theo kịp.
 Đằng sau những danh hiệu cao quý như Nhà giáo Ưu tú, Huân chương Lao động hạng Ba, Bằng khen của Thủ tướng Chính phủ, Bằng khen Bộ Giáo dục và Đào tạo, hay hai lần đạt danh hiệu Chiến sĩ thi đua cấp thành phố, là một con người giản dị, khiêm nhường, sống trọn vẹn với nghề và với gia đình.
@@ -160,23 +363,28 @@ Cuộc đời thầy nhắc chúng ta rằng: vĩ đại không nhất thiết p
 Người thầy rồi sẽ già đi theo năm tháng. Nhưng những hạt giống tri thức và cảm hứng mà thầy gieo xuống sẽ tiếp tục nảy mầm trong biết bao cuộc đời khác.
 Và đó mới là sự bất tử đẹp nhất của nghề giáo.
     """
+    }
 }
 
 if 'comments' not in st.session_state:
     st.session_state.comments = []
 
 # 3. GIAO DIỆN CHÍNH
-st.markdown("<h1 style='text-align: center;'>📚 THƯ VIỆN SỐ THẦY HẬU</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #1E40AF !important;'>📚 THƯ VIỆN SỐ THẦY HẬU</h1>", unsafe_allow_html=True)
 
-# Sidebar
-st.sidebar.markdown("## 📖 MỤC LỤC")
-selected = st.sidebar.radio("Chọn chương:", list(DATA_BOOK.keys()))
+# Sidebar - CHỌN SÁCH VÀ CHỌN CHƯƠNG
+st.sidebar.markdown("## 📖 CHỌN TÁC PHẨM")
+selected_book = st.sidebar.selectbox("", list(LIBRARY_DATA.keys()))
 
-# Nội dung
-st.markdown(f"<h2 style='color: #1E40AF !important;'>📌 {selected}</h2>", unsafe_allow_html=True)
-content = DATA_BOOK[selected]
-# Thêm style căn lề trực tiếp vào div để đảm bảo chắc chắn
-st.markdown(f"<div class='noidung-sach' style='text-align: justify;'>{content}</div>", unsafe_allow_html=True)
+st.sidebar.markdown("## 📑 MỤC LỤC")
+selected_chapter = st.sidebar.radio("", list(LIBRARY_DATA[selected_book].keys()))
+
+# Nội dung ở cột phải
+st.markdown(f"<h3 style='text-align: center; color: #4B5563 !important;'>Tác phẩm: {selected_book}</h3>", unsafe_allow_html=True)
+st.markdown(f"<h2 style='color: #1E40AF !important;'>📌 {selected_chapter}</h2>", unsafe_allow_html=True)
+
+content = LIBRARY_DATA[selected_book][selected_chapter]
+st.markdown(f"<div class='noidung-sach'>{content}</div>", unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
@@ -187,17 +395,21 @@ with st.form("form_comment", clear_on_submit=True):
     comment_user = st.text_area("Cảm nhận:")
     btn = st.form_submit_button("GỬI BÌNH LUẬN")
     if btn and name_user and comment_user:
+        # Cập nhật bình luận kèm theo tên sách để biết độc giả đang bình luận cho sách nào
         st.session_state.comments.insert(0, {
             "name": name_user,
             "text": comment_user,
+            "book": selected_book,
             "time": datetime.now().strftime("%d/%m/%Y %H:%M")
         })
         st.rerun()
 
+# Chỉ hiển thị bình luận của cuốn sách đang được chọn
 for c in st.session_state.comments:
-    st.markdown(f"""
-        <div style='background-color: #F3F4F6; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 5px solid #1E40AF;'>
-            <strong style='color: #1E40AF !important;'>👤 {c['name']}</strong> <small>({c['time']})</small><br>
-            <p style='color: #000000 !important; margin-top: 5px; text-align: justify;'>{c['text']}</p>
-        </div>
-    """, unsafe_allow_html=True)
+    if c.get("book") == selected_book or "book" not in c:
+        st.markdown(f"""
+            <div style='background-color: #F3F4F6; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 5px solid #1E40AF;'>
+                <strong style='color: #1E40AF !important;'>👤 {c['name']}</strong> <small>({c['time']})</small><br>
+                <p style='color: #000000 !important; margin-top: 5px; text-align: justify;'>{c['text']}</p>
+            </div>
+        """, unsafe_allow_html=True)
